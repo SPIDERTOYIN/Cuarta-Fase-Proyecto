@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head><title>Sucursal</title></head>
+<body>
+<h2>Sucursal: {{ sucursal.nombre }}</h2>
+<h3>Empleados</h3>
+<ul>
+{% for emp in sucursal.empleados %}
+  <li>{{ emp.nombre }}</li>
+{% endfor %}
+</ul>
+
+<h3>Asistencias</h3>
+<ul>
+{% for emp in sucursal.empleados %}
+  {% for asis in emp.asistencias %}
+    <li>{{ emp.nombre }} - {{ asis.timestamp }}</li>
+  {% endfor %}
+{% endfor %}
+</ul>
+
+<a href="{{ url_for('dashboard') }}">Volver al Dashboard</a>
+</body>
+</html>
